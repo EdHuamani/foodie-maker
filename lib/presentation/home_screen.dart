@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_maker/presentation/food_create.dart';
+import 'package:foodie_maker/presentation/ingredient_detect_screen.dart';
+import 'package:camera/camera.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -11,6 +13,14 @@ class HomeScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => FoodCreate()),
+    );
+  }
+
+  void _navigateToIngredientDetect(context) async {
+    List<CameraDescription>  cameras = await availableCameras();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => IngredientDetectScreen(cameras)),
     );
   }
 
@@ -109,6 +119,10 @@ class HomeScreen extends StatelessWidget {
                 .display1
                 .copyWith(color: Colors.black),
           ),
+          RaisedButton(
+            onPressed: () =>  _navigateToIngredientDetect(context) ,
+            child: Text("Camera"),
+             ),
         ],
       ),
     );

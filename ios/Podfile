@@ -51,10 +51,10 @@ target 'Runner' do
     end
   }
 
-  # pod 'Firebase/MLVisionBarcodeModel'
-  # pod 'Firebase/MLVisionFaceModel'
-  # pod 'Firebase/MLVisionLabelModel'
-  # pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/MLVisionBarcodeModel'
+  pod 'Firebase/MLVisionFaceModel'
+  pod 'Firebase/MLVisionLabelModel'
+  pod 'Firebase/MLVisionTextModel'
 
   # Plugin Pods
   plugin_pods = parse_KV_file('../.flutter-plugins')

@@ -15,6 +15,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  camera:
+    dependency: transitive
+    description:
+      path: "packages/camera"
+      ref: "feature/camera_api_16_installation"
+      resolved-ref: "301f85e52cbf32dae44510b3f49167133df1ffc2"
+      url: "https://github.com/jaumard/plugins"
+    source: git
+    version: "0.4.4"
   charcode:
     dependency: transitive
     description:
@@ -43,6 +52,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
+  device_info:
+    dependency: transitive
+    description:
+      name: device_info
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0+2"
   firebase_core:
     dependency: transitive
     description:
@@ -50,11 +66,25 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.0+3"
+  firebase_ml_vision:
+    dependency: "direct main"
+    description:
+      name: firebase_ml_vision
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+3"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_camera_ml_vision:
+    dependency: "direct main"
+    description:
+      name: flutter_camera_ml_vision
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   flutter_redux:
     dependency: "direct main"
     description:
@@ -67,6 +97,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  image_picker:
+    dependency: "direct main"
+    description:
+      name: image_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0+8"
   matcher:
     dependency: transitive
     description:
@@ -88,6 +125,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
+  path_provider:
+    dependency: transitive
+    description:
+      name: path_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   pedantic:
     dependency: transitive
     description:
