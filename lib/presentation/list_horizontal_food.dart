@@ -46,9 +46,9 @@ class _CardProyectsState extends State<CardProyects>
             child: widget,
           ),
       child: Container(
-          margin: EdgeInsets.only(right: 16, bottom: 8),
+        margin: EdgeInsets.only(right: 16, bottom: 8),
         child: InkWell(
-          onTap: (){},
+          onTap: () {},
           child: Stack(
             overflow: Overflow.clip,
             fit: StackFit.loose,
@@ -81,12 +81,14 @@ class _CardProyectsState extends State<CardProyects>
                 child: Column(
                   children: <Widget>[
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: 60,
+                      width: 60,
+                      padding: EdgeInsets.all(8),
+                      child: Image.asset('assets/img/broccoli.png'),
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       child: Text(
                         'Vegatales',
                         style: TextStyle(
