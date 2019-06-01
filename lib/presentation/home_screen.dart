@@ -5,7 +5,6 @@ import 'package:flare_flutter/flare_actor.dart';
 
 import 'package:foodie_maker/containers/recipes_filtered.dart';
 
-
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
 
@@ -16,33 +15,39 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(context, RecipesFiltered.routeName);
   }
 
-
   void _navigateToIngredientDetect(context) async {
-    List<CameraDescription>  cameras = await availableCameras();
+    List<CameraDescription> cameras = await availableCameras();
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => IngredientDetectScreen(cameras)),
     );
   }
 
-
   List getItems(context) {
     return [
-      rowFilterByType(),
+      // rowFilterByType(),
       buildTitle(context),
       SizedBox(height: 16),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
         child: ListTile(
+          leading: Icon(
+            Icons.check,
+            color: Colors.lightGreen,
+          ),
           title: Text("Papa"),
-          trailing: Icon(Icons.remove),
+          trailing: Icon(Icons.remove, color: Colors.cyan),
         ),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
         child: ListTile(
+          leading: Icon(
+            Icons.check,
+            color: Colors.lightGreen,
+          ),
           title: Text("pollo"),
-          trailing: Icon(Icons.remove),
+          trailing: Icon(Icons.remove, color: Colors.cyan),
         ),
       )
     ];
@@ -54,8 +59,12 @@ class HomeScreen extends StatelessWidget {
     List items = getItems(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.lightGreen.withOpacity(0.2),
         elevation: 0,
+        title: Container(
+          child: Image.asset('assets/img/logo.png'),
+        ),
+        centerTitle: true,
       ),
       body: Container(
           padding: EdgeInsets.all(8.0),
@@ -160,9 +169,9 @@ class HomeScreen extends StatelessWidget {
                 .copyWith(color: Colors.black),
           ),
           RaisedButton(
-            onPressed: () =>  _navigateToIngredientDetect(context) ,
+            onPressed: () => _navigateToIngredientDetect(context),
             child: Text("Camera"),
-             ),
+          ),
         ],
       ),
     );
