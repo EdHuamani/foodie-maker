@@ -28,8 +28,12 @@ class _RecipeScreenState extends State<RecipeScreen> {
     items.addAll(widget.recipes);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.lightGreen.withOpacity(0.2),
         elevation: 0,
+        title: Container(
+          child: Image.asset('assets/img/logo.png'),
+        ),
+        centerTitle: true,
         actions: <Widget>[
           Container(
             child: IconButton(
@@ -69,9 +73,12 @@ class _RecipeScreenState extends State<RecipeScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  'Tus deliciosos',
-                  style: titleFont,
+                Padding(
+                  padding: EdgeInsets.only(top: 16),
+                  child: Text(
+                    'Tus deliciosos',
+                    style: titleFont,
+                  ),
                 ),
                 Text(
                   'platillos creados',
@@ -115,43 +122,47 @@ class _RecipeScreenState extends State<RecipeScreen> {
             Container(
               width: 100,
               height: 100,
+              padding: EdgeInsets.all(4),
               child: Image.network(recipe.imageUrl),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(height: 8),
-                Text(
-                  recipe.title,
-                  style: Theme.of(context).textTheme.title,
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'description',
-                  style: Theme.of(context).textTheme.body1,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 8),
-                  height: 2,
-                  width: 18,
-                  color: Colors.cyan,
-                ),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.timer,
-                      size: 15,
-                    ),
-                    Container(width: 8.0),
-                    Text(
-                      '30` min',
-                      style: Theme.of(context).textTheme.caption,
-                    ),
-                  ],
-                ),
-              ],
+            Container(
+              margin: EdgeInsets.only(left: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 8),
+                  Text(
+                    recipe.title,
+                    style: Theme.of(context).textTheme.title,
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'description',
+                    style: Theme.of(context).textTheme.body1,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 8),
+                    height: 2,
+                    width: 18,
+                    color: Colors.cyan,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.timer,
+                        size: 15,
+                      ),
+                      Container(width: 8.0),
+                      Text(
+                        '30` min',
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
