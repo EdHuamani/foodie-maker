@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_redux: ^0.5.3
-  cloud_firestore: ^0.8.2
+  cloud_firestore: ^0.12.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -58,12 +58,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: assets/font/Tajawal/Tajawal-Bold.ttf
+        - asset: assets/font/Tajawal/Tajawal-Regular.ttf
+        - asset: assets/font/Tajawal/Tajawal-Light.ttf
+    - family: Lobster Two
+      fonts:
+        - asset: assets/font/Lobster_Two/LobsterTwo-Bold.ttf
+        - asset: assets/font/Lobster_Two/LobsterTwo-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
