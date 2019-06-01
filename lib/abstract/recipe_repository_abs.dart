@@ -1,5 +1,5 @@
 import 'package:foodie_maker/models/models.dart';
 
 abstract class RecipeRepositoryAbs {
-  Stream<Recipe> findRecipe();
+  Stream<List<Recipe>> findRecipe(String id);
 }

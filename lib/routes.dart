@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:foodie_maker/presentation/home_screen.dart';
 import 'package:foodie_maker/presentation/splash_screen.dart';
 
+import 'containers/recipes_filtered.dart';
 import 'models/models.dart';
 
 Map<String, WidgetBuilder> getRoutes(context, store) {
@@ -11,7 +12,11 @@ Map<String, WidgetBuilder> getRoutes(context, store) {
           builder: (context, store) => SplashScreen(),
         ),
     HomeScreen.routeName: (BuildContext context) => new StoreBuilder<AppState>(
-          builder: (context, store) => new HomeScreen(),
+          builder: (context, store) => HomeScreen(),
+        ),
+    RecipesFiltered.routeName: (BuildContext context) =>
+        new StoreBuilder<AppState>(
+          builder: (context, store) => RecipesFiltered(),
         ),
   };
 }
@@ -48,7 +53,6 @@ Route<Null> getGenerateRoute(
   final List<String> path = settings.name.split('/');
   if (path[0] != '') return null;
 
-  
   // // User Badges screen
   // if (isPathNameWithRoute(settings, BadgeDetails.routePath)) {
   //   String _id = getIdByPath(settings);

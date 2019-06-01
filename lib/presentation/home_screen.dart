@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_maker/presentation/food_create.dart';
+
 import 'package:foodie_maker/presentation/ingredient_detect_screen.dart';
 import 'package:camera/camera.dart';
+
+import 'package:foodie_maker/containers/recipes_filtered.dart';
+
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -10,11 +13,9 @@ class HomeScreen extends StatelessWidget {
       fontFamily: 'Lobster Two', fontWeight: FontWeight.normal, fontSize: 40);
 
   void _navigate(context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => FoodCreate()),
-    );
+    Navigator.pushNamed(context, RecipesFiltered.routeName);
   }
+
 
   void _navigateToIngredientDetect(context) async {
     List<CameraDescription>  cameras = await availableCameras();
@@ -24,26 +25,60 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    List items = [
+
+  List getItems(context) {
+    return [
       rowFilterByType(),
       buildTitle(context),
+      SizedBox(height: 16),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+        child: ListTile(
+          title: Text("Papa"),
+          trailing: Icon(Icons.remove),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+        child: ListTile(
+          title: Text("pollo"),
+          trailing: Icon(Icons.remove),
+        ),
+      )
     ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: mockup only
+    List items = getItems(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: Container(
-        padding: EdgeInsets.all(8.0),
-        child: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (BuildContext context, int index) {
-            return items[index];
-          },
-        ),
-      ),
+          padding: EdgeInsets.all(8.0),
+          child: Stack(
+            children: <Widget>[
+              Opacity(
+                opacity: 0.3,
+                child: Container(
+                  margin: EdgeInsets.only(right: 30),
+                  child: FlareActor("assets/animation/loading.flr",
+                      alignment: Alignment.center,
+                      fit: BoxFit.contain,
+                      animation: "loading"),
+                ),
+              ),
+              ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return items[index];
+                },
+              ),
+            ],
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         isExtended: true,
@@ -60,6 +95,7 @@ class HomeScreen extends StatelessWidget {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
+            color: Colors.transparent,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: Colors.blueGrey[100],
@@ -105,12 +141,16 @@ class HomeScreen extends StatelessWidget {
 
   Widget buildTitle(context) {
     return Container(
+      color: Colors.transparent,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Lista',
-            style: titleFont,
+          Container(
+            padding: EdgeInsets.only(top: 16),
+            child: Text(
+              'Lista',
+              style: titleFont,
+            ),
           ),
           Text(
             'tus ingredientes:',

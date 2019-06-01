@@ -8,9 +8,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) => HandleInitApp(
         builder: (context, vm) {
           if (vm.isLoading) LoadingIndicator();
-          return HomeScreen(
-            
-          );
+          return HomeScreen();
         },
       );
 }
