@@ -9,7 +9,6 @@ class SplashScreen extends StatelessWidget {
         builder: (context, vm) {
           if (vm.isLoading) LoadingIndicator();
           return HomeScreen(
-            
           );
         },
       );
