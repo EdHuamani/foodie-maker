@@ -14,12 +14,25 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    List items = [
+  List getItems(context) {
+    return [
       rowFilterByType(),
       buildTitle(context),
+      ListTile(
+        title: Text("Papa"),
+        trailing: Icon(Icons.remove),
+      ),
+      ListTile(
+        title: Text("pollo"),
+        trailing: Icon(Icons.remove),
+      )
     ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: mockup only
+    List items = getItems(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
