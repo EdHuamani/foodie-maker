@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:foodie_maker/abstract/abstract.dart';
@@ -12,7 +11,6 @@ import 'redux/reducer/app_state_reducer.dart';
 import 'redux/action/actions.dart';
 
 final Firestore firestore = Firestore.instance;
-final FirebaseAuth auth = FirebaseAuth.instance;
 
 Future<void> main({
   IngredientRepositoryAbs ingredientRepository,
@@ -42,7 +40,7 @@ class FludieApp extends StatelessWidget {
           distinct: true,
           middleware: []..addAll(
               createIngredientMiddleware(ingredientRepository ??
-                  IngredientRepository(auth: auth, firestore: firestore)),
+                  IngredientRepository(firestore: firestore)),
             ),
         ),
         super(key: key) {
