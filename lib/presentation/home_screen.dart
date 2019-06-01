@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_maker/presentation/food_create.dart';
+
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:foodie_maker/containers/recipes_filtered.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -9,10 +10,7 @@ class HomeScreen extends StatelessWidget {
       fontFamily: 'Lobster Two', fontWeight: FontWeight.normal, fontSize: 40);
 
   void _navigate(context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => FoodCreate()),
-    );
+    Navigator.pushNamed(context, RecipesFiltered.routeName);
   }
 
   List getItems(context) {

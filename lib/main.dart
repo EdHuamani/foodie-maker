@@ -4,6 +4,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:foodie_maker/abstract/abstract.dart';
 import 'package:foodie_maker/models/models.dart';
 import 'package:foodie_maker/redux/middleware/middlewares.dart';
+import 'package:foodie_maker/redux/middleware/recipe_middleware.dart';
+import 'package:foodie_maker/repository/recipe_repository.dart';
 import 'package:foodie_maker/repository/repository.dart';
 import 'package:foodie_maker/routes.dart';
 import 'package:redux/redux.dart';
@@ -38,9 +40,15 @@ class FludieApp extends StatelessWidget {
           appReducer,
           initialState: AppState.loading(),
           distinct: true,
-          middleware: []..addAll(
+          middleware: []
+            ..addAll(
               createIngredientMiddleware(ingredientRepository ??
                   IngredientRepository(firestore: firestore)),
+            )
+            ..addAll(
+              createRecipeMiddleware(
+                recipeRepository ?? RecipeRepository(firestore: firestore),
+              ),
             ),
         ),
         super(key: key) {
