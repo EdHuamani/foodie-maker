@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:foodie_maker/presentation/ingredient_detect_screen.dart';
 import 'package:camera/camera.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 import 'package:foodie_maker/containers/recipes_filtered.dart';
 
@@ -28,26 +28,23 @@ class HomeScreen extends StatelessWidget {
 
   List getItems(context) {
     return [
+      rowFilterByType(),
       buildTitle(context),
-      // SizedBox(height: 16),
-      // rowFilterByType(),
       SizedBox(height: 16),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
         child: ListTile(
-          leading: Icon(Icons.check,color: Colors.lightGreen,),
           title: Text("Papa"),
-          trailing: Icon(Icons.remove,color: Colors.cyan),
+          trailing: Icon(Icons.remove),
         ),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
         child: ListTile(
-             leading: Icon(Icons.check,color: Colors.lightGreen,),
           title: Text("pollo"),
-          trailing: Icon(Icons.remove,color: Colors.cyan),
+          trailing: Icon(Icons.remove),
         ),
-      ),
+      )
     ];
   }
 
@@ -57,12 +54,8 @@ class HomeScreen extends StatelessWidget {
     List items = getItems(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen.withOpacity(0.2),
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Container(
-          child: Image.asset('assets/img/logo.png'),
-        ),
-        centerTitle: true,
       ),
       body: Container(
           padding: EdgeInsets.all(8.0),
