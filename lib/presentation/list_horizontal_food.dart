@@ -83,7 +83,7 @@ class _CardProyectsState extends State<CardProyects>
                     Container(
                       height: 60,
                       width: 60,
-                      padding: EdgeInsets.all(6),
+                      padding: EdgeInsets.all(8),
                       child: Image.asset('assets/img/broccoli.png'),
                     ),
                     Container(
