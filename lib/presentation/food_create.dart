@@ -4,13 +4,25 @@ import 'package:foodie_maker/presentation/list_horizontal_food.dart';
 class FoodCreate extends StatelessWidget {
   static String routeName = "/create";
   final TextStyle titleFont = TextStyle(
-      fontFamily: 'Lobster Two', fontWeight: FontWeight.normal, fontSize: 32);
+      fontFamily: 'Lobster Two', fontWeight: FontWeight.normal, fontSize: 40);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: <Widget>[
+          Container(
+            child: IconButton(
+              icon: Icon(
+                Icons.filter_list,
+                color: Colors.lightGreen,
+              ),
+              color: Colors.transparent,
+              onPressed: () {},
+            ),
+          ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.all(8.0),
@@ -31,29 +43,10 @@ class FoodCreate extends StatelessWidget {
                         'platillos creados',
                         style: Theme.of(context)
                             .textTheme
-                            .headline
+                            .display1
                             .copyWith(color: Colors.black),
                       ),
                     ],
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.lightGreen,
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.lightGreen.withOpacity(0.5),
-                            blurRadius: 10.0,
-                          ),
-                        ]),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.filter_list,
-                        color: Colors.white,
-                      ),
-                      color: Colors.transparent,
-                      onPressed: () {},
-                    ),
                   ),
                 ],
               ),
@@ -62,7 +55,6 @@ class FoodCreate extends StatelessWidget {
               height: 32,
             ),
             ListHorizontalFood(),
-            
           ],
         ),
       ),
