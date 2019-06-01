@@ -49,6 +49,23 @@ class HomeScreen extends StatelessWidget {
           title: Text("pollo"),
           trailing: Icon(Icons.remove, color: Colors.cyan),
         ),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            child: RaisedButton(
+                color: Colors.lightGreen.withOpacity(0.5),
+                elevation: 0,
+                onPressed: () => _navigateToIngredientDetect(context),
+                child: Row(
+                  children: <Widget>[
+                    Text('Buscar por '),
+                    Icon(Icons.camera_alt),
+                  ],
+                )),
+          ),
+        ],
       )
     ];
   }
@@ -167,10 +184,6 @@ class HomeScreen extends StatelessWidget {
                 .textTheme
                 .display1
                 .copyWith(color: Colors.black),
-          ),
-          RaisedButton(
-            onPressed: () => _navigateToIngredientDetect(context),
-            child: Text("Camera"),
           ),
         ],
       ),
